@@ -122,7 +122,7 @@ class Chain(object):
         """
         links = URDF_utils.get_urdf_parameters(urdf_file, base_elements=base_elements, last_link_vector=last_link_vector, base_element_type=base_element_type)
         # Add an origin link at the beginning
-        return cls([link_lib.OriginLink()] + links, active_links_mask=active_links_mask, name=name)
+        return cls(links, active_links_mask=active_links_mask, name=name)
 
     def active_to_full(self, active_joints, initial_position):
         full_joints = np.array(initial_position, copy=True, dtype=np.float)
